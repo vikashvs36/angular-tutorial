@@ -34,5 +34,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## To Run the project
 
     > cd project_name
+    > npm install
     > ng serve
    
