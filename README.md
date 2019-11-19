@@ -43,4 +43,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     > ng generate component /folder/userDetails
     > ng g c user
    
+## Create Service
 
+    > ng g s /folder/servicename
+    > ng generate service /folder/servicename
+   

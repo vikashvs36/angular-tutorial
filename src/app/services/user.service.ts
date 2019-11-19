@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {User} from '../../domain/user';
+import {Observable, of} from 'rxjs/index';
 import {Users} from '../config/mock-users';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class UserService {
 
   constructor() { }
 
-  findAll(): User[] {
-    return Users;
+  findAll(): Observable<User[]> {
+    return of(Users);
   }
 }

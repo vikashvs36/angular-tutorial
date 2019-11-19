@@ -21,7 +21,7 @@ export class UserComponent implements OnInit {
   }
 
   findAll(): void {
-    this.userList = this.userService.findAll();
+    this.userService.findAll().subscribe((users: User[]) => { this.userList = users} );
   }
 
   onClick(user: User): void {
