@@ -25,11 +25,5 @@ export class AppComponent {
     {id:4, username: 'Satish', password: 'Satish'}
   ];
 
-  selectedUser: User = null;
-
-  onClick(user: User): void {
-    this.selectedUser = user;
-  }
-
 
 }

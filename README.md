@@ -37,3 +37,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     > npm install
     > ng serve
    
+## Create Component
+
+    > ng generate component user
+    > ng generate component /folder/userDetails
+    > ng g c user
+   
+
