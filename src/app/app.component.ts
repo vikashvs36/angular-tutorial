@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {User} from "../domain/user";
 
 @Component({
   selector: 'app-root',
@@ -7,5 +6,5 @@ import {User} from "../domain/user";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-tutorial';
+
 }

@@ -1,10 +1,11 @@
 
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+<div class="container">
+  <nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+      <li routerLink="/dashboard">Home</li>
+      <li routerLink="/users">Users</li>
+    </ul>
+  </nav>
+  <router-outlet></router-outlet>
 </div>
-
-<app-user></app-user>
-
-<!--<router-outlet></router-outlet>-->
+<!--<app-user></app-user>-->
