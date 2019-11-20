@@ -11,8 +11,9 @@ export class UserComponent implements OnInit {
 
   selectedUser: User = null;
 
-  // @Input() userList: User[];
   private userList: User[] = null;
+
+  isCreate: boolean = false;
 
   constructor(private userService: UserService) { }
 
@@ -26,8 +27,24 @@ export class UserComponent implements OnInit {
 
   onClick(user: User): void {
     this.selectedUser = user;
+    this.isCreate = false;
   }
 
+  deleteUser(user: User): void {
+    if (user === this.selectedUser) {
+      this.selectedUser = null;
+    }
+    this.userService.deleteUser(user);
+  }
+
+  newUserBtn(){
+    this.selectedUser = null;
+    this.isCreate = true;
+  }
+
+  closeCreateUser() {
+    this.isCreate = false;
+  }
 
 
 }

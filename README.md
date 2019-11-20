@@ -48,3 +48,15 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     > ng g s /folder/servicename
     > ng generate service /folder/servicename
    
+## Passing an Array of classes
+   
+    <button [ngClass]="['btn', 'btn-primary', isCreateUser]">Button</button>
+    
+    Note: isCreateUser is a variable and btn or btn-primary is bootstrap classes. 
+
+## ngForm
+
+    <form #userlogin = "ngForm" (ngSubmit) = "editUser(userlogin.value)">
+      <input type="text" class="form-control" id="username" name="username" placeholder="Username" ngModel="{{selectedUser.username}}">
+    <input type="submit" value="Register">
+      

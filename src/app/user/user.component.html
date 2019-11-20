@@ -13,8 +13,8 @@
       <tr class="light-row" *ngFor="let user of userList">
         <td>{{user.id}}</td>
         <td>{{user.username}}</td>
-        <td class="text-center" (click)="onClick(user)"><a href="#" >Edit</a></td>
-        <td class="text-center"><a href="#">Delete</a></td>
+        <td class="text-center"><a href="#" (click)="onClick(user)">Edit</a></td>
+        <td class="text-center"><a href="#" (click)="deleteUser(user)">Delete</a></td>
       </tr>
       </tbody>
 
@@ -23,6 +23,17 @@
 </div>
 
 <div class="container" style="margin-top: 25px">
+  <button [ngClass]="['btn', 'btn-primary', isCreate?'display-none':'display']" name="createUser" (click)="newUserBtn()">New User</button>
+
+  <div *ngIf="isCreate == true">
+    <div class="row">
+    <button class="btn btn-danger pull-right " (click)="closeCreateUser()">Close</button>
+      <div class="col-md-6 col-md-offset-3">
+        <app-create-user></app-create-user>
+      </div>
+    </div>
+  </div>
+
   <div *ngIf="selectedUser != null">
     <div class="row">
 
