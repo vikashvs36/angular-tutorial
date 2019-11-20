@@ -1,6 +1,16 @@
 <h3>Show {{selectedUser.username | uppercase }} Details</h3>
-<ul class="col-md-6">
-  <li class="form-control">Id : <span >{{selectedUser.id}}</span></li>
-  <li class="form-control">Username : {{selectedUser.username}}</li>
-  <li class="form-control">Password : {{selectedUser.password}}</li>
-</ul>
+<div class="row">
+  <ul class="col-md-6">
+    <li class="form-control">Id : <span >{{selectedUser.id}}</span></li>
+    <li class="form-control">Username : {{selectedUser.username}}</li>
+    <li class="form-control">Password : {{selectedUser.password}}</li>
+  </ul>
+</div>
+<div class="row">
+  <div class="col-md-1">
+    <a href="editUser/{{selectedUser.id}}" class="btn btn-warning">Edit</a>
+  </div>
+  <div class="col-md-1">
+    <a href="deleteUser/{{selectedUser.id}}" class="btn btn-danger">Delete</a>
+  </div>
+</div>

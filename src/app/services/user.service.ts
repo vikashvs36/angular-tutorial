@@ -13,12 +13,13 @@ export class UserService {
   constructor() { }
 
   findAll(): Observable<User[]> {
-    let index =Users.length;
-    this.len = Users[index-1].id;
+    let index: number = Users.length;
+    if(index > 0 ) this.len = index>0 ? Users[index-1].id : index;
     return of(Users);
   }
 
   createUser(user: User): void {
+    console.log('User : ', user);
     Users.push({id: ++this.len, username: user.username, password: user.password});
   }
 
@@ -35,4 +36,19 @@ export class UserService {
     let index = Users.indexOf(deleteUser);
     Users.splice(index,1);
   }
+
+  findOne(id: number): User {
+    let user: User = null;
+
+    this.findAll().forEach((users: User[]) => {
+      users.filter((tempUser: User) => {
+        if (tempUser.id === id) {
+          user = tempUser;
+        }
+      })
+    });
+
+    return user;
+  }
+
 }

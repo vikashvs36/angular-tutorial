@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from '../../domain/user';
 import {UserService} from "../services/user.service";
+import {ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -9,42 +10,31 @@ import {UserService} from "../services/user.service";
 })
 export class UserComponent implements OnInit {
 
-  selectedUser: User = null;
-
   private userList: User[] = null;
 
-  isCreate: boolean = false;
-
-  constructor(private userService: UserService) { }
+  constructor(private router: ActivatedRoute,private userService: UserService) { }
 
   ngOnInit() {
-    this.findAll()
+    this.findAll();
+
+    this.router.paramMap.forEach((paramsMap: ParamMap) => {
+      let id = paramsMap.get('id');
+      if (id) {
+        this.deleteUser(this.findOne(+id));
+      }
+    });
   }
 
   findAll(): void {
     this.userService.findAll().subscribe((users: User[]) => { this.userList = users} );
   }
 
-  onClick(user: User): void {
-    this.selectedUser = user;
-    this.isCreate = false;
+  findOne(id: number): User {
+    return this.userService.findOne(id);
   }
 
   deleteUser(user: User): void {
-    if (user === this.selectedUser) {
-      this.selectedUser = null;
-    }
     this.userService.deleteUser(user);
   }
-
-  newUserBtn(){
-    this.selectedUser = null;
-    this.isCreate = true;
-  }
-
-  closeCreateUser() {
-    this.isCreate = false;
-  }
-
 
 }

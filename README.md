@@ -60,3 +60,58 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
       <input type="text" class="form-control" id="username" name="username" placeholder="Username" ngModel="{{selectedUser.username}}">
     <input type="submit" value="Register">
       
+## Get Url, params or paramMap details using ActivatedRoute
+
+    constructor(private router: ActivatedRoute) { }
+    
+    ngOnInit() {
+      
+      # Using ParamMap
+      this.router.paramMap.forEach((paramsMap: ParamMap) => {
+            let id = paramsMap.get('id');
+      });
+      
+      # Using Param
+      this.router.params.forEach(params => { 
+          let id = params['id'];
+      });
+      
+      # Using Url
+      this.router.url.forEach((segements: UrlSegment[]) => {
+         segements.filter((value: UrlSegment) => {
+           console.log(value);
+         });
+      })
+    }
+
+# Routing
+
+    # class class AppRoutingModule { }
+    const routes: Routes = [
+      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'users', component: UserComponent },
+      { path: 'deleteUser/:id', component: UserComponent },
+    ];
+    
+    # Create link in html part and mention <router-outlet>
+    <div class="container">
+      <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+          <li routerLinkActive="active" routerLink="/dashboard">Home</li>
+          <li routerLinkActive="active" routerLink="/users">Users</li>
+        </ul>
+      </nav>
+      <router-outlet></router-outlet>
+    </div>
+
+## Navigation 
+
+    // If you want to redirect or navigate url after delete or update 
+    constructor(private router: Router) {}
+    
+    updateUser(user: User): void {
+        this.userService.editUser(user);
+        this.router.navigate(['users']);  // users is a Url link in app-routing.modules
+        // this.router.navigate(['users', id]);  // redirect Url : '/users/:id'
+    }
