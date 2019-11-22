@@ -115,3 +115,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
         this.router.navigate(['users']);  // users is a Url link in app-routing.modules
         // this.router.navigate(['users', id]);  // redirect Url : '/users/:id'
     }
+
+## Way to install Bootstap in project (localy not globly)
+
+     # npm install --save bootstrap@3
+     # Go to angular.json file and change the blow written code:
+        -> "styles" : [
+                "src/stylex.css";,
+                "node_modules/bootstrap/dist/css/bootstrap.css"  // add filepath from created file in node_module folder.
+            ]
