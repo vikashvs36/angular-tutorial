@@ -5,6 +5,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {UserEditComponent} from './user/user-edit/user-edit.component';
 import {UserDetailsComponent} from './user/user-details/user-details.component';
 import {CreateUserComponent} from './user/create-user/create-user.component';
+import { LoginUserComponent } from './user/login-user/login-user.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'showUser/:id', component: UserDetailsComponent},
   { path: 'editUser/:id', component: UserEditComponent},
   { path: 'deleteUser/:id', component: UserComponent },
+  { path: 'login', component: LoginUserComponent}
 ];
 
 @NgModule({
