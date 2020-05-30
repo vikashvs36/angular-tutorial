@@ -42,7 +42,7 @@ export class LoginUserComponent implements OnInit {
       const absControl = group.get(key);
       console.log('key : '+key+", value : "+absControl.value)
       this.formErrors[key]='';
-      if(absControl && !absControl.valid) {
+      if(absControl && !absControl.valid && (absControl.touched || absControl.dirty)) {
         const message = this.validationMessage[key];
         
         for(const errorKey in absControl.errors ) {
